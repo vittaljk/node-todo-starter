@@ -158,10 +158,11 @@ router.route('/todo')
         todo.description = req.body.description;
         todo.save(function (err) {
             if (err)
-				res.send(err);
-
+                res.send(err);
 			res.json({
-				message: 'todo created!'
+                message: 'todo created!',
+                status: 200,
+                data: todo
             });
         });
     })
@@ -183,7 +184,9 @@ router.route('/todo/:id')
                     res.send(err);
 
                 res.json({
-                    message: 'todo updated!'
+                    message: 'todo updated!',
+                    status: 200,
+                    data: todo
                 });
             });
 
@@ -199,7 +202,9 @@ router.route('/todo/:id')
                 res.send(err);
 
             res.json({
-                message: 'Successfully deleted'
+                message: 'Successfully deleted',
+                status: 200,
+                data: todo
             });
         });
     });
